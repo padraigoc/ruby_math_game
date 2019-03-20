@@ -13,16 +13,25 @@ class Game
       #ask question
       puts "----------- NEW ROUND -----------"
       for item in @playerArray
-        # if item.lives == 0 
-        #   puts "Sorry, player #{item.name}, you lose!"
-        # else
           puts "Player #{item.name}'s turn:"
           newQuestion(item)
           puts "Player #{@p1.name} : #{@p1.lives}/3 LIVES \nPlayer #{@p2.name} : #{@p2.lives}/3 LIVES"
           puts "\n"
       end
-     # end
     end
+     whoWins
+    end
+
+    def whoWins 
+      if @p1.lives > 0
+        puts "*-*-*-*-*-*-*-*"
+        puts "Player 1 wins!"
+        puts "*-*-*-*-*-*-*-*"
+      else
+        puts "*-*-*-*-*-*-*-*"
+        puts "Player 2 wins!"
+        puts "*-*-*-*-*-*-*-*"
+      end
     end
       
       def newQuestion(player)    
@@ -38,7 +47,7 @@ class Game
           player.lives -= 1
 
          else 
-          puts "That is correct! :) "
+          puts "Congrats, That is correct! :) "
          end
       end
 
